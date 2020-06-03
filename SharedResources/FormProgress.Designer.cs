@@ -1,4 +1,4 @@
-﻿namespace ExcelAddIn
+﻿namespace SharedResources
 {
     partial class FormProgress
     {

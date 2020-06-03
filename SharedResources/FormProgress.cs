@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ExcelAddIn
+namespace SharedResources
 {
     public partial class FormProgress : Form
     {
