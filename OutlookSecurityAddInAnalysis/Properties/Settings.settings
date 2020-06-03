@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SecurityAddInAnalysis.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LegitTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\legit.oft</Value>
+    </Setting>
+    <Setting Name="SpamTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\spam.oft</Value>
+    </Setting>
+    <Setting Name="MaliciousTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\malicious.oft</Value>
+    </Setting>
+    <Setting Name="SimulationTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\simulation.oft</Value>
+    </Setting>
+    <Setting Name="NoAttachmentTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\noattachment.oft</Value>
+    </Setting>
+    <Setting Name="SendFromMailbox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">soc-pl@outlook.com</Value>
+    </Setting>
+    <Setting Name="RequestMailbox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">suspicious-box@outlook.com</Value>
+    </Setting>
+    <Setting Name="RequestMailboxDoneFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Done</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
