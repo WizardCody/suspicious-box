@@ -10,7 +10,7 @@ using Microsoft.Office.Tools;
 using System.Diagnostics;
 using SharedResources;
 
-namespace SecurityAddInAnalysis
+namespace OutlookSecurityAddInAnalysis
 {
     class RibbonSecurityAnalysisExplorer : RibbonSecurityAnalysis
     {

@@ -6,7 +6,7 @@ using Microsoft.Office.Tools.Ribbon;
 
 using Outlook = Microsoft.Office.Interop.Outlook;
 
-namespace SecurityAddInReport
+namespace OutlookSecurityAddInReport
 {
 
     public partial class RibbonSecurityReport

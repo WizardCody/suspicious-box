@@ -1,4 +1,4 @@
-﻿namespace ExcelAddIn
+﻿namespace ExcelSecurityAddInAnalysis
 {
     partial class RibbonSecurity : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
@@ -66,7 +66,7 @@
             // menu1
             // 
             this.menu1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.menu1.Image = global::ExcelAddIn.Properties.Resources.file;
+            this.menu1.Image = global::ExcelSecurityAddInAnalysis.Properties.Resources.file;
             this.menu1.Items.Add(this.buttonGenerate1);
             this.menu1.Items.Add(this.buttonGenerate2);
             this.menu1.Label = "Get mailbox data into...";
@@ -75,7 +75,7 @@
             // 
             // buttonGenerate1
             // 
-            this.buttonGenerate1.Image = global::ExcelAddIn.Properties.Resources.file;
+            this.buttonGenerate1.Image = global::ExcelSecurityAddInAnalysis.Properties.Resources.file;
             this.buttonGenerate1.Label = "table";
             this.buttonGenerate1.Name = "buttonGenerate1";
             this.buttonGenerate1.ShowImage = true;
@@ -83,7 +83,7 @@
             // 
             // buttonGenerate2
             // 
-            this.buttonGenerate2.Image = global::ExcelAddIn.Properties.Resources.file;
+            this.buttonGenerate2.Image = global::ExcelSecurityAddInAnalysis.Properties.Resources.file;
             this.buttonGenerate2.Label = "csv file";
             this.buttonGenerate2.Name = "buttonGenerate2";
             this.buttonGenerate2.ShowImage = true;

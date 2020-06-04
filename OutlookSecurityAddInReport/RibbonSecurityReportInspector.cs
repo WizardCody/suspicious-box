@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Outlook = Microsoft.Office.Interop.Outlook;
 
-namespace SecurityAddInReport
+namespace OutlookSecurityAddInReport
 {
     class RibbonSecurityReportInspector : RibbonSecurityReport
     {

@@ -1,4 +1,4 @@
-﻿namespace SecurityAddInAnalysis
+﻿namespace OutlookSecurityAddInAnalysis
 {
     partial class HeaderAnalysisControl
     {

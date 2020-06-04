@@ -24,8 +24,8 @@
     <ProjectGuid>{0707D978-FBDC-4A93-AAF4-C93824B03B7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <RootNamespace>ExcelAddIn</RootNamespace>
-    <AssemblyName>ExcelAddIn</AssemblyName>
+    <RootNamespace>ExcelSecurityAddInAnalysis</RootNamespace>
+    <AssemblyName>ExcelSecurityAddInAnalysis</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -38,10 +38,10 @@
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <IsWebBootstrapper>False</IsWebBootstrapper>
-    <ProductName>ExcelAddIn</ProductName>
+    <ProductName>ExcelSecurityAddInAnalysis</ProductName>
     <PublisherName />
     <SupportUrl />
-    <FriendlyName>ExcelAddIn</FriendlyName>
+    <FriendlyName>ExcelSecurityAddInAnalysis</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
@@ -228,7 +228,7 @@
     <EmbeddedResource Include="RibbonSecurity.resx">
       <DependentUpon>RibbonSecurity.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ExcelAddIn_TemporaryKey.pfx" />
+    <None Include="ExcelSecurityAddInAnalysis_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -289,7 +289,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ExcelAddIn_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>ExcelSecurityAddInAnalysis_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>F4BC3A3A70CA045ACC63ED95E40075C46A09EFC5</ManifestCertificateThumbprint>
@@ -303,7 +303,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
-        <Host Name="Excel" GeneratedCodeNamespace="ExcelAddIn" IconIndex="0">
+        <Host Name="Excel" GeneratedCodeNamespace="ExcelSecurityAddInAnalysis" IconIndex="0">
           <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>

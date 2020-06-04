@@ -8,7 +8,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using Microsoft.Office.Tools.Ribbon;
 using SharedResources;
 
-namespace SecurityAddInAnalysis
+namespace OutlookSecurityAddInAnalysis
 {
     class RibbonSecurityAnalysisInspector : RibbonSecurityAnalysis
     {

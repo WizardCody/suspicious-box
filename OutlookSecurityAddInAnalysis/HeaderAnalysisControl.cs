@@ -13,7 +13,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using System.Diagnostics;
 using Microsoft.Office.Tools;
 
-namespace SecurityAddInAnalysis
+namespace OutlookSecurityAddInAnalysis
 {
     public partial class HeaderAnalysisControl : UserControl
     {

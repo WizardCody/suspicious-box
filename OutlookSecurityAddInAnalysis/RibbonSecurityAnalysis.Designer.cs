@@ -1,4 +1,4 @@
-﻿namespace SecurityAddInAnalysis
+﻿namespace OutlookSecurityAddInAnalysis
 {
     partial class RibbonSecurityAnalysis : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
@@ -64,7 +64,7 @@
             // buttonSample
             // 
             this.buttonSample.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonSample.Image = global::SecurityAddInAnalysis.Properties.Resources.mail;
+            this.buttonSample.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.mail;
             this.buttonSample.Label = "No sample";
             this.buttonSample.Name = "buttonSample";
             this.buttonSample.ShowImage = true;
@@ -73,7 +73,7 @@
             // buttonLegit
             // 
             this.buttonLegit.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonLegit.Image = global::SecurityAddInAnalysis.Properties.Resources.mail;
+            this.buttonLegit.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.mail;
             this.buttonLegit.Label = "Legitimate";
             this.buttonLegit.Name = "buttonLegit";
             this.buttonLegit.ShowImage = true;
@@ -82,7 +82,7 @@
             // buttonSimulation
             // 
             this.buttonSimulation.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonSimulation.Image = global::SecurityAddInAnalysis.Properties.Resources.mail;
+            this.buttonSimulation.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.mail;
             this.buttonSimulation.Label = "Simulation";
             this.buttonSimulation.Name = "buttonSimulation";
             this.buttonSimulation.ShowImage = true;
@@ -91,7 +91,7 @@
             // buttonSpam
             // 
             this.buttonSpam.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonSpam.Image = global::SecurityAddInAnalysis.Properties.Resources.mail;
+            this.buttonSpam.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.mail;
             this.buttonSpam.Label = "Spam";
             this.buttonSpam.Name = "buttonSpam";
             this.buttonSpam.ShowImage = true;
@@ -100,7 +100,7 @@
             // buttonMalicious
             // 
             this.buttonMalicious.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonMalicious.Image = global::SecurityAddInAnalysis.Properties.Resources.mail2;
+            this.buttonMalicious.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.mail2;
             this.buttonMalicious.Label = "Malicious";
             this.buttonMalicious.Name = "buttonMalicious";
             this.buttonMalicious.ShowImage = true;
@@ -116,7 +116,7 @@
             // toggleButtonShowHeaders
             // 
             this.toggleButtonShowHeaders.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.toggleButtonShowHeaders.Image = global::SecurityAddInAnalysis.Properties.Resources.zoom;
+            this.toggleButtonShowHeaders.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.zoom;
             this.toggleButtonShowHeaders.Label = "Show headers";
             this.toggleButtonShowHeaders.Name = "toggleButtonShowHeaders";
             this.toggleButtonShowHeaders.ShowImage = true;
@@ -125,7 +125,7 @@
             // buttonAnalyse
             // 
             this.buttonAnalyse.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonAnalyse.Image = global::SecurityAddInAnalysis.Properties.Resources.vision;
+            this.buttonAnalyse.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.vision;
             this.buttonAnalyse.Label = "Analyse";
             this.buttonAnalyse.Name = "buttonAnalyse";
             this.buttonAnalyse.ShowImage = true;

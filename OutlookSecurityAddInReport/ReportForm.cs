@@ -13,7 +13,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using System.Diagnostics;
 using SharedResources;
 
-namespace SecurityAddInReport
+namespace OutlookSecurityAddInReport
 {
 
     public partial class ReportForm : Form

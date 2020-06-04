@@ -24,7 +24,7 @@
     <ProjectGuid>{BBF3358F-B7B4-465E-AE87-1EFF22369C7F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <RootNamespace>SecurityAddInReport</RootNamespace>
+    <RootNamespace>OutlookSecurityAddInReport</RootNamespace>
     <AssemblyName>SecurityAddIn1Report</AssemblyName>
     <LoadBehavior>3</LoadBehavior>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>

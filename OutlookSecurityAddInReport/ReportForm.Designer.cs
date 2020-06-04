@@ -1,4 +1,4 @@
-﻿namespace SecurityAddInReport
+﻿namespace OutlookSecurityAddInReport
 {
     partial class ReportForm
     {

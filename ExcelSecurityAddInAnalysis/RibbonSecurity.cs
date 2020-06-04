@@ -8,7 +8,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 using System.Windows.Forms;
 
-namespace ExcelAddIn
+namespace ExcelSecurityAddInAnalysis
 {
     public partial class RibbonSecurity
     {

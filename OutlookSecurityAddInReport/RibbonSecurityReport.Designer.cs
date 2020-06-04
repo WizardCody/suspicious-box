@@ -1,4 +1,4 @@
-﻿namespace SecurityAddInReport
+﻿namespace OutlookSecurityAddInReport
 {
     partial class RibbonSecurityReport : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
@@ -57,7 +57,7 @@
             // buttonReport
             // 
             this.buttonReport.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonReport.Image = global::SecurityAddInReport.Properties.Resources.shield;
+            this.buttonReport.Image = global::OutlookSecurityAddInReport.Properties.Resources.shield;
             this.buttonReport.Label = "Report email";
             this.buttonReport.Name = "buttonReport";
             this.buttonReport.ShowImage = true;

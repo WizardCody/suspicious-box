@@ -10,7 +10,7 @@ using Microsoft.Office.Tools;
 using System.Reflection;
 using SharedResources;
 
-namespace SecurityAddInAnalysis
+namespace OutlookSecurityAddInAnalysis
 {
 
     public partial class RibbonSecurityAnalysis

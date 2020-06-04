@@ -7,7 +7,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
 using System.Diagnostics;
 
-namespace SecurityAddInAnalysis
+namespace OutlookSecurityAddInAnalysis
 {
     public partial class ThisAddIn
     {
