@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.dataGridViewSelections = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.buttonReport = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButtonSpam = new System.Windows.Forms.RadioButton();
-            this.radioButtonPhishing = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioButtonPhishing = new System.Windows.Forms.RadioButton();
+            this.radioButtonSpam = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelections)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewSelections
@@ -65,6 +65,22 @@
             this.dataGridViewSelections.RowTemplate.Height = 24;
             this.dataGridViewSelections.Size = new System.Drawing.Size(619, 142);
             this.dataGridViewSelections.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Subject";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 84;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "ReceivedTime";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // textBoxComment
             // 
@@ -94,6 +110,7 @@
             // 
             this.buttonCancel.AutoSize = true;
             this.buttonCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonCancel.Location = new System.Drawing.Point(567, 395);
             this.buttonCancel.Name = "buttonCancel";
@@ -126,17 +143,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(631, 426);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // groupBox1
+            // groupBox3
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 4);
-            this.groupBox1.Controls.Add(this.dataGridViewSelections);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 163);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selections";
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox3, 4);
+            this.groupBox3.Controls.Add(this.textBoxComment);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 226);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(625, 163);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Comment";
             // 
             // groupBox2
             // 
@@ -151,17 +168,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Type";
             // 
-            // groupBox3
+            // flowLayoutPanel1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox3, 4);
-            this.groupBox3.Controls.Add(this.textBoxComment);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 226);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 163);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Comment";
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.radioButtonPhishing);
+            this.flowLayoutPanel1.Controls.Add(this.radioButtonSpam);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 18);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(619, 27);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // radioButtonPhishing
+            // 
+            this.radioButtonPhishing.AutoSize = true;
+            this.radioButtonPhishing.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonPhishing.Name = "radioButtonPhishing";
+            this.radioButtonPhishing.Size = new System.Drawing.Size(83, 21);
+            this.radioButtonPhishing.TabIndex = 4;
+            this.radioButtonPhishing.Text = "Phishing";
+            this.radioButtonPhishing.UseVisualStyleBackColor = true;
             // 
             // radioButtonSpam
             // 
@@ -175,62 +201,40 @@
             this.radioButtonSpam.Text = "Spam";
             this.radioButtonSpam.UseVisualStyleBackColor = true;
             // 
-            // radioButtonPhishing
+            // groupBox1
             // 
-            this.radioButtonPhishing.AutoSize = true;
-            this.radioButtonPhishing.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonPhishing.Name = "radioButtonPhishing";
-            this.radioButtonPhishing.Size = new System.Drawing.Size(83, 21);
-            this.radioButtonPhishing.TabIndex = 4;
-            this.radioButtonPhishing.Text = "Phishing";
-            this.radioButtonPhishing.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonPhishing);
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonSpam);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 18);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(619, 27);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Subject";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 84;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "ReceivedTime";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 4);
+            this.groupBox1.Controls.Add(this.dataGridViewSelections);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(625, 163);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Selections";
             // 
             // ReportForm
             // 
+            this.AcceptButton = this.buttonReport;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(631, 426);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportForm";
             this.Text = "Report to Security Team";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelections)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

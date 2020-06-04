@@ -33,14 +33,14 @@ namespace SecurityAddInReport
             var activeInspector = App.ActiveWindow() as Outlook.Inspector;
 
             Form.Grid.Rows.Clear();
-            Form.items.Clear();
+            Form.Items.Clear();
 
             dynamic item = activeInspector.CurrentItem;
 
             if (item.Class == (int)Outlook.OlObjectClass.olMail)
             {
                 Form.Grid.Rows.Add(item.Subject, item.ReceivedTime);
-                Form.items.Add(item);
+                Form.Items.Add(item);
             }
         }
 

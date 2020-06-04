@@ -34,16 +34,18 @@ namespace SecurityAddInReport
             }
         }
 
-        public string report_to = "suspicious-box@outlook.com";
+        public string Report_Mail { get; } = "suspicious-box@outlook.com";
         
-        public List<Outlook.MailItem> items = new List<Outlook.MailItem>();
+        public List<Outlook.MailItem> Items { get; } = new List<Outlook.MailItem>();
+
+        private FormProgressManager Manager { get; } = new FormProgressManager();
 
         public ReportForm()
         {
             InitializeComponent();
 
-            this.AcceptButton = buttonReport;
-            this.CancelButton = CancelButton;
+            Manager.Worker.DoWork += Worker_DoWork;
+            Manager.Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         }
 
         private void ProcessMail(Outlook.MailItem mailObject)
@@ -80,7 +82,7 @@ namespace SecurityAddInReport
             newMail.Sender = account.CurrentUser.AddressEntry;
             newMail.SendUsingAccount = account;
             newMail.Attachments.Add(path);
-            newMail.To = report_to;
+            newMail.To = Report_Mail;
 
             // force generation of full HTML from Inspector
             var inspector = newMail.GetInspector;
@@ -98,21 +100,54 @@ namespace SecurityAddInReport
                 return;
             }
             
-            mailObject.Categories = "Reported";
+            //mailObject.Categories = "Reported";
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var worker = sender as BackgroundWorker;
+
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Process;
+
+            int currentItem = 0;
+            foreach (var item in Items)
+            {
+                if (worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                currentItem++;
+
+                Manager.SetStatus(currentItem, Items.Count);
+
+                ProcessMail(item);
+            }
+
+            if (currentItem < Items.Count)
+                Manager.SetStatus(Items.Count, Items.Count);
         }
 
         private void buttonReport_Click(object sender, EventArgs e)
         {
-            foreach (var item in items)
-            {
-                ProcessMail(item);
-            }
-            this.Close();
+            Manager.Run();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Close();
+        }
+
+        private void ReportForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Manager.FormProgress != null)
+                Manager.FormProgress.Close();
         }
     }
 }

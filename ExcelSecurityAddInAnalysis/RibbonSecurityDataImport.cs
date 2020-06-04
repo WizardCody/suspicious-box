@@ -18,6 +18,7 @@ namespace ExcelAddIn
 {
     public partial class RibbonSecurity
     {
+        protected FormProgressManager Manager { get; } = new FormProgressManager();
 
         public class CSVTemplate
         {
@@ -54,164 +55,6 @@ namespace ExcelAddIn
             return folders;
         }
 
-        private void buttonGenerate1_Click(object sender, RibbonControlEventArgs e)
-        {
-            string mailbox = MailboxEdit.Text;
-
-            if (string.IsNullOrWhiteSpace(mailbox))
-                throw new Exception("wrong mailbox address");
-
-            if (!backgroundWorker1.IsBusy)
-            {
-                if (FormProgress == null || FormProgress.IsDisposed)
-                {
-                    FormProgress = SetupFormProgress();
-                }
-
-                if (!FormProgress.Visible)
-                {
-                    FormProgress.Show();
-                }
-
-                FormProgress.Activate();
-
-                backgroundWorker1.RunWorkerAsync(new FormProgressArgs()
-                { 
-                    Mailbox = mailbox, 
-                    Type = FormProgressArgs.Types.table 
-                });
-
-            }
-        }
-
-        private void buttonGenerate2_Click(object sender, RibbonControlEventArgs e)
-        {
-            SaveFileDialog dialog = new SaveFileDialog()
-            {
-                FileName = "Mail",
-                Filter = "csv file|*.csv"
-            };
-
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            string path = dialog.FileName;
-
-            if (!IsPathValid(path))
-                throw new Exception("path not valid");
-
-            string mailbox = MailboxEdit.Text;
-
-            if (string.IsNullOrWhiteSpace(mailbox))
-                throw new Exception("wrong mailbox address");
-
-            if (!backgroundWorker1.IsBusy)
-            {
-                if (FormProgress == null || FormProgress.IsDisposed)
-                {
-                    FormProgress = SetupFormProgress();
-                }
-
-                if (!FormProgress.Visible)
-                {
-                    FormProgress.Show();
-                }
-
-                FormProgress.Activate();
-
-                backgroundWorker1.RunWorkerAsync(new FormProgressArgs() 
-                { 
-                    Path = path, 
-                    Mailbox = mailbox, 
-                    Type = FormProgressArgs.Types.csv 
-                });
-            }
-        }
-
-        private FormProgress SetupFormProgress()
-        {
-            var result = new FormProgress();
-
-            result.ButtonCancel.Click += ButtonCancel_Click;
-            result.FormClosing += FormProgress_FormClosing;
-
-            return result;
-        }
-
-        private void FormProgress_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            StopWorker();
-        }
-
-        private void ButtonCancel_Click(object sender, EventArgs e)
-        {
-            StopWorker();
-        }
-
-        private void StopWorker()
-        {
-            if (backgroundWorker1.IsBusy)
-            {
-                CurrentStage = ProcessStage.Cancel;
-
-                backgroundWorker1.CancelAsync();
-            }
-        }
-
-        // Background Worker fields
-        private ProcessStage _currentStage = ProcessStage.Prepare;
-
-        public ProcessStage CurrentStage
-        {
-            get
-            {
-                return _currentStage;
-            }
-            private set
-            {
-                _currentStage = value;
-
-                FormProgress.Invoke((MethodInvoker)
-                    delegate ()
-                    {
-                        switch (value)
-                        {
-                            case ProcessStage.Prepare:
-                                FormProgress.Text = "Preparing...";
-                                break;
-
-                            case ProcessStage.Process:
-                                FormProgress.Text = "Processing...";
-                                break;
-
-                            case ProcessStage.Cancel:
-                                FormProgress.Text = "Cancelling...";
-                                FormProgress.ButtonCancel.Enabled = false;
-                                break;
-                        }
-                    });
-            }
-        }
-
-        public void SetStatus(int current, int end)
-        {
-            Debug.WriteLine(string.Format("{0}/{1}", current, end));
-
-            FormProgress.Invoke((MethodInvoker)
-            delegate ()
-            {
-                FormProgress.LabelStatus.Text = string.Format("{0}/{1}", current, end);
-                FormProgress.ProgressBar.Value = Convert.ToInt32(current * (100.0 / end));
-            });
-        }
-
-        public enum ProcessStage
-        {
-            Prepare,
-            Process,
-            Cancel
-        };
-
         private class FormProgressArgs
         {
             public string Path { get; set; }
@@ -229,7 +72,7 @@ namespace ExcelAddIn
 
         private FormProgress FormProgress { get; set; } = null;
 
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             var worker = sender as System.ComponentModel.BackgroundWorker;
             var arguments = (FormProgressArgs)e.Argument;
@@ -241,7 +84,7 @@ namespace ExcelAddIn
             Debug.WriteLine(string.Format("path: {0}",path));
             Debug.WriteLine(string.Format("mailbox: {0}", mailbox));
 
-            CurrentStage = ProcessStage.Prepare;
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Prepare;
 
             Outlook.Application app = new Outlook.Application();
 
@@ -264,7 +107,7 @@ namespace ExcelAddIn
                 {
                     currentitem++;
 
-                    SetStatus(currentitem, itemcount);
+                    Manager.SetStatus(currentitem, itemcount);
 
                     if (worker.CancellationPending)
                     {
@@ -279,7 +122,7 @@ namespace ExcelAddIn
                 }
             }
 
-            CurrentStage = ProcessStage.Process;
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Process;
             itemcount = mailsList.Count;
             currentitem = 0;
             switch (type)
@@ -296,7 +139,7 @@ namespace ExcelAddIn
                         {
                             currentitem++;
 
-                            SetStatus(currentitem, itemcount);
+                            Manager.SetStatus(currentitem, itemcount);
 
                             if (worker.CancellationPending)
                             {
@@ -384,7 +227,7 @@ namespace ExcelAddIn
                     {
                         currentitem++;
 
-                        SetStatus(currentitem, itemcount);
+                        Manager.SetStatus(currentitem, itemcount);
 
                         if (worker.CancellationPending)
                         {
@@ -417,12 +260,7 @@ namespace ExcelAddIn
                     break;
             }
 
-            SetStatus(itemcount, itemcount);
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            FormProgress.Close();
+            Manager.SetStatus(itemcount, itemcount);
         }
 
     }

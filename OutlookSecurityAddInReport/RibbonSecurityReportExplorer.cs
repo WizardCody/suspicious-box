@@ -34,14 +34,14 @@ namespace SecurityAddInReport
             var selections = activeExplorer.Selection;
 
             Form.Grid.Rows.Clear();
-            Form.items.Clear();
+            Form.Items.Clear();
 
             foreach (dynamic selection in selections)
             {
                 if (selection.Class == (int)Outlook.OlObjectClass.olMail)
                 {
                     Form.Grid.Rows.Add(selection.Subject, selection.ReceivedTime);
-                    Form.items.Add(selection);
+                    Form.Items.Add(selection);
                 }
             }
         }

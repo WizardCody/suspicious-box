@@ -15,6 +15,7 @@ namespace SecurityAddInAnalysis
 
     public partial class RibbonSecurityAnalysis
     {
+        protected FormProgressManager Manager { get; } = new FormProgressManager();
 
         public string TaskPaneTitle { get; } = "Message headers";
 
@@ -77,7 +78,6 @@ namespace SecurityAddInAnalysis
             if (account == null)
                 return;
 
-            // Przerwij jeżeli napotkasz błąd na jakimś etapie.
             try
             {
                 Outlook.MailItem template = App.CreateItemFromTemplate(type.GetTemplate());

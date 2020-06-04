@@ -199,6 +199,9 @@
       <Link>SharedResources\FormProgress.designer.cs</Link>
       <DependentUpon>FormProgress.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\SharedResources\FormProgressManager.cs">
+      <Link>SharedResources\FormProgressManager.cs</Link>
+    </Compile>
     <Compile Include="..\SharedResources\MailItemProperties.cs">
       <Link>SharedResources\MailItemProperties.cs</Link>
     </Compile>

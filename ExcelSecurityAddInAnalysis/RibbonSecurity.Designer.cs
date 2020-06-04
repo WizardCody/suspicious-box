@@ -36,14 +36,13 @@
         {
             this.tabSecurity = this.Factory.CreateRibbonTab();
             this.groupData = this.Factory.CreateRibbonGroup();
+            this.menu1 = this.Factory.CreateRibbonMenu();
+            this.buttonGenerate1 = this.Factory.CreateRibbonButton();
+            this.buttonGenerate2 = this.Factory.CreateRibbonButton();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.box1 = this.Factory.CreateRibbonBox();
             this.label1 = this.Factory.CreateRibbonLabel();
             this.editBoxMailbox = this.Factory.CreateRibbonEditBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.menu1 = this.Factory.CreateRibbonMenu();
-            this.buttonGenerate1 = this.Factory.CreateRibbonButton();
-            this.buttonGenerate2 = this.Factory.CreateRibbonButton();
             this.tabSecurity.SuspendLayout();
             this.groupData.SuspendLayout();
             this.box1.SuspendLayout();
@@ -63,37 +62,6 @@
             this.groupData.Items.Add(this.box1);
             this.groupData.Label = "Data";
             this.groupData.Name = "groupData";
-            // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
-            // 
-            // box1
-            // 
-            this.box1.BoxStyle = Microsoft.Office.Tools.Ribbon.RibbonBoxStyle.Vertical;
-            this.box1.Items.Add(this.label1);
-            this.box1.Items.Add(this.editBoxMailbox);
-            this.box1.Name = "box1";
-            // 
-            // label1
-            // 
-            this.label1.Label = "mailbox";
-            this.label1.Name = "label1";
-            // 
-            // editBoxMailbox
-            // 
-            this.editBoxMailbox.Label = "editBox1";
-            this.editBoxMailbox.Name = "editBoxMailbox";
-            this.editBoxMailbox.ShowLabel = false;
-            this.editBoxMailbox.SizeString = "_____________________________";
-            this.editBoxMailbox.Text = null;
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // menu1
             // 
@@ -121,11 +89,36 @@
             this.buttonGenerate2.ShowImage = true;
             this.buttonGenerate2.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonGenerate2_Click);
             // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
+            // 
+            // box1
+            // 
+            this.box1.BoxStyle = Microsoft.Office.Tools.Ribbon.RibbonBoxStyle.Vertical;
+            this.box1.Items.Add(this.label1);
+            this.box1.Items.Add(this.editBoxMailbox);
+            this.box1.Name = "box1";
+            // 
+            // label1
+            // 
+            this.label1.Label = "mailbox";
+            this.label1.Name = "label1";
+            // 
+            // editBoxMailbox
+            // 
+            this.editBoxMailbox.Label = "editBox1";
+            this.editBoxMailbox.Name = "editBoxMailbox";
+            this.editBoxMailbox.ShowLabel = false;
+            this.editBoxMailbox.SizeString = "_____________________________";
+            this.editBoxMailbox.Text = null;
+            // 
             // RibbonSecurity
             // 
             this.Name = "RibbonSecurity";
             this.RibbonType = "Microsoft.Excel.Workbook";
             this.Tabs.Add(this.tabSecurity);
+            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.RibbonSecurity_Load);
             this.tabSecurity.ResumeLayout(false);
             this.tabSecurity.PerformLayout();
             this.groupData.ResumeLayout(false);
@@ -147,7 +140,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxMailbox;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box1;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 
     partial class ThisRibbonCollection

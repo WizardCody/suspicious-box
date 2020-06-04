@@ -15,6 +15,34 @@ namespace SecurityAddInAnalysis
         public RibbonSecurityAnalysisInspector() : base()
         {
             InitializeComponent();
+
+            Manager.Worker.DoWork += Worker_DoWork;
+        }
+
+        private void Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            var worker = sender as System.ComponentModel.BackgroundWorker;
+
+            var type = (Classification)e.Argument;
+
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Process;
+
+            Manager.SetStatus(0, 1);
+
+            if (worker.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            dynamic item = App.ActiveInspector().CurrentItem;
+
+            if (item.Class == (int)Outlook.OlObjectClass.olMail)
+            {
+                ProcessMail(item, type);
+            }
+
+            Manager.SetStatus(1, 1);
         }
 
         protected override void RibbonSecurityAnalysis_Load(object sender, RibbonUIEventArgs e)
@@ -57,6 +85,36 @@ namespace SecurityAddInAnalysis
             {
                 ApplySelection();
             }
+        }
+
+        private void ProcessCurrentItem(Classification type)
+        {
+            Manager.Run(type);
+        }
+
+        protected override void buttonSample_Click(object sender, RibbonControlEventArgs e) 
+        {
+            ProcessCurrentItem(Classification.noSample);
+        }
+
+        protected override void buttonLegit_Click(object sender, RibbonControlEventArgs e) 
+        {
+            ProcessCurrentItem(Classification.legit);
+        }
+
+        protected override void buttonSpam_Click(object sender, RibbonControlEventArgs e)
+        {
+            ProcessCurrentItem(Classification.spam);
+        }
+
+        protected override void buttonSimulation_Click(object sender, RibbonControlEventArgs e) 
+        {
+            ProcessCurrentItem(Classification.simulation);
+        }
+
+        protected override void buttonMalicious_Click(object sender, RibbonControlEventArgs e) 
+        {
+            ProcessCurrentItem(Classification.malicious);
         }
 
     }

@@ -17,6 +17,61 @@ namespace SecurityAddInAnalysis
         public RibbonSecurityAnalysisExplorer() : base()
         {
             InitializeComponent();
+
+            Manager.Worker.DoWork += Worker_DoWork;
+        }
+
+        private void Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            var worker = sender as System.ComponentModel.BackgroundWorker;
+
+            var type = (Classification) e.Argument;
+
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Prepare;
+
+            List<Outlook.MailItem> Items = new List<Outlook.MailItem>();
+
+            var selections = App.ActiveExplorer().Selection;
+
+            int currentItem = 0;
+            foreach (dynamic selection in selections)
+            {
+                if (worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                currentItem++;
+
+                Manager.SetStatus(currentItem, selections.Count);
+
+                if (selection.Class == (int)Outlook.OlObjectClass.olMail)
+                {
+                    Items.Add(selection);
+                }
+            }
+
+            Manager.CurrentStage = FormProgressManager.ProcessStage.Process;
+
+            currentItem = 0;
+            foreach (var item in Items)
+            {
+                if (worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                currentItem++;
+
+                Manager.SetStatus(currentItem, Items.Count);
+
+                ProcessMail(item, type);
+            }
+
+            if (currentItem < Items.Count)
+                Manager.SetStatus(Items.Count, Items.Count);
         }
 
         protected override void HeaderAnalysisControl_Load(object sender, EventArgs e)
@@ -65,13 +120,7 @@ namespace SecurityAddInAnalysis
 
         private void ProcessSelections(Classification type)
         {
-            foreach (dynamic selection in App.ActiveExplorer().Selection)
-            {
-                if (selection.Class == (int)Outlook.OlObjectClass.olMail)
-                {
-                    ProcessMail(selection, type);
-                }
-            }
+            Manager.Run(type);
         }
 
         protected override void buttonSample_Click(object sender, RibbonControlEventArgs e)

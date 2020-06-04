@@ -159,6 +159,17 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="..\SharedResources\FormProgress.cs">
+      <Link>SharedResources\FormProgress.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\SharedResources\FormProgress.designer.cs">
+      <Link>SharedResources\FormProgress.designer.cs</Link>
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\SharedResources\FormProgressManager.cs">
+      <Link>SharedResources\FormProgressManager.cs</Link>
+    </Compile>
     <Compile Include="..\SharedResources\MailItemProperties.cs">
       <Link>SharedResources\MailItemProperties.cs</Link>
     </Compile>
@@ -174,6 +185,10 @@
     <Compile Include="HeaderAnalysisControl.Designer.cs">
       <DependentUpon>HeaderAnalysisControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="..\SharedResources\FormProgress.resx">
+      <Link>SharedResources\FormProgress.resx</Link>
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
