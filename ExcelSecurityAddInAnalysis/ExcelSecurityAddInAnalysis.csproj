@@ -227,8 +227,8 @@
     </Compile>
     <EmbeddedResource Include="RibbonSecurity.resx">
       <DependentUpon>RibbonSecurity.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="ExcelSecurityAddInAnalysis_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

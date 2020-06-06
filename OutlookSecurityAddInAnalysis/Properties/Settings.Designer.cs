@@ -123,5 +123,41 @@ namespace OutlookSecurityAddInAnalysis.Properties {
                 this["RequestMailboxDoneFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>trace</string>
+  <string>resent-date</string>
+  <string>resent-from</string>
+  <string>resent-sender</string>
+  <string>resent-to</string>
+  <string>resent-cc</string>
+  <string>resent-bcc</string>
+  <string>resent-msg-id</string>
+  <string>orig-date</string>
+  <string>from</string>
+  <string>sender</string>
+  <string>reply-to</string>
+  <string>to</string>
+  <string>cc</string>
+  <string>bcc</string>
+  <string>message-id</string>
+  <string>in-reply-to</string>
+  <string>references</string>
+  <string>subject</string>
+  <string>comments</string>
+  <string>keywords</string>
+  <string>optional-field</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection HeaderWhitelist {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["HeaderWhitelist"]));
+            }
+            set {
+                this["HeaderWhitelist"] = value;
+            }
+        }
     }
 }

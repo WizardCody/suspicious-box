@@ -26,5 +26,32 @@
     <Setting Name="RequestMailboxDoneFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Done</Value>
     </Setting>
+    <Setting Name="HeaderWhitelist" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;trace&lt;/string&gt;
+  &lt;string&gt;resent-date&lt;/string&gt;
+  &lt;string&gt;resent-from&lt;/string&gt;
+  &lt;string&gt;resent-sender&lt;/string&gt;
+  &lt;string&gt;resent-to&lt;/string&gt;
+  &lt;string&gt;resent-cc&lt;/string&gt;
+  &lt;string&gt;resent-bcc&lt;/string&gt;
+  &lt;string&gt;resent-msg-id&lt;/string&gt;
+  &lt;string&gt;orig-date&lt;/string&gt;
+  &lt;string&gt;from&lt;/string&gt;
+  &lt;string&gt;sender&lt;/string&gt;
+  &lt;string&gt;reply-to&lt;/string&gt;
+  &lt;string&gt;to&lt;/string&gt;
+  &lt;string&gt;cc&lt;/string&gt;
+  &lt;string&gt;bcc&lt;/string&gt;
+  &lt;string&gt;message-id&lt;/string&gt;
+  &lt;string&gt;in-reply-to&lt;/string&gt;
+  &lt;string&gt;references&lt;/string&gt;
+  &lt;string&gt;subject&lt;/string&gt;
+  &lt;string&gt;comments&lt;/string&gt;
+  &lt;string&gt;keywords&lt;/string&gt;
+  &lt;string&gt;optional-field&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

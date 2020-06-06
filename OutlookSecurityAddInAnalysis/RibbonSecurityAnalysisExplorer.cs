@@ -113,7 +113,15 @@ namespace OutlookSecurityAddInAnalysis
                 dynamic item = activeExplorer.Selection[1];
                 if (item.Class == (int)Outlook.OlObjectClass.olMail)
                 {
-                    HeaderAnalysisControl.TextBox.Text = MailItemProperties.GetHeader(item);
+                    //HeaderAnalysisControl.TextBox.Text = MailItemProperties.GetHeader(item);
+                    HeaderAnalysisControl.CurrentItem = item;
+                    //HeaderAnalysisControl.ApplyHeader();
+                    //Debug.WriteLine("TEST");
+
+                    //var test = Globals.ThisAddIn.Application.Session.OpenSharedItem(@"C:\Users\Marcin\Desktop\test.msg") as Outlook.MailItem;
+                    
+                    //Debug.WriteLine(test.Subject);
+
                 }
             }
         }

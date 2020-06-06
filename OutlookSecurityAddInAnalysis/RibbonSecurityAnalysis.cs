@@ -29,7 +29,7 @@ namespace OutlookSecurityAddInAnalysis
         {
             foreach (var TaskPane in ThisAddIn.CustomTaskPanes)
             {
-                if (TaskPane.Title == TaskPaneTitle & TaskPane.Window == App.ActiveWindow())
+                if (TaskPane.Title == TaskPaneTitle && TaskPane.Window == App.ActiveWindow())
                 {
                     TaskPaneHeaderAnalysis = TaskPane;
                     toggleButtonShowHeaders.Checked = TaskPane.Visible;
@@ -56,7 +56,6 @@ namespace OutlookSecurityAddInAnalysis
 
         public HeaderAnalysisControl HeaderAnalysisControl { get; private set; } = null;
 
-        // auto property
         public CustomTaskPane TaskPaneHeaderAnalysis { get; private set; } = null;
 
 

@@ -10,19 +10,56 @@ namespace SharedResources
 {
     class MailItemProperties
     {
-        /// <summary>
-        /// Canonical name: PidTagTransportMessageHeaders
-        /// Description: Contains transport-specific message envelope information for email.
-        /// Property ID:0x007D
-        /// Data type:PtypString, 0x001F
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
+        public class Schemas
+        {
+            /// <summary>
+            /// Canonical name: PidTagTransportMessageHeaders
+            /// Description: Contains transport-specific message envelope information for email.
+            /// Property ID:0x007D
+            /// Data type:PtypString, 0x001F
+            /// </summary>
+            public static string PidTagTransportMessageHeaders()
+            {
+                return ("http://schemas.microsoft.com/mapi/proptag/0x007D001F");
+            }
+
+            /// <summary>
+            /// Canonical name: PidTagSmtpAddress
+            /// it can be Recipient type or AddressEntry type.
+            /// </summary>
+            public static string PidTagSmtpAddress()
+            {
+                return ("http://schemas.microsoft.com/mapi/proptag/0x39FE001E");
+            }
+
+            /// <summary>
+            /// Canonical name: PidTagLastVerbExecuted
+            /// Description: Specifies the last verb executed for the message item to which it is related.
+            /// Property ID: 0x1081
+            /// Data type: PtypInteger32, 0x0003
+            /// </summary>
+            public static string PidTagLastVerbExecuted()
+            {
+                return ("http://schemas.microsoft.com/mapi/proptag/0x10810003");
+            }
+
+            /// <summary>
+            /// Canonical name: PidTagLastVerbExecutionTime
+            /// Description: Contains the date and time, in UTC, during which the operation represented in the PidTagLastVerbExecuted property took place.
+            /// Property ID: 0x1082
+            /// Data type: PtypTime, 0x0040
+            /// </summary>
+            public static string PidTagLastVerbExecutionTime()
+            {
+                return ("http://schemas.microsoft.com/mapi/proptag/0x10820040");
+            }
+        }
+
         public static string GetHeader(Outlook.MailItem item)
         {
             try
             {
-                return item.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x007D001F");
+                return item.PropertyAccessor.GetProperty(Schemas.PidTagTransportMessageHeaders());
             }
             catch (Exception exc)
             {
@@ -30,17 +67,11 @@ namespace SharedResources
             }
         }
 
-        /// <summary>
-        /// Canonical name: PidTagSmtpAddress
-        /// it can be Recipient type or AddressEntry type.
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         public static string GetSMTPAddressForRecipient(Outlook.MailItem item)
         {
             try
             {
-                return item.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x39FE001E");
+                return item.PropertyAccessor.GetProperty(Schemas.PidTagSmtpAddress());
             }
             catch (Exception exc)
             {
@@ -48,23 +79,11 @@ namespace SharedResources
             }
         }
 
-        /// <summary>
-        /// Canonical name: PidTagLastVerbExecuted
-        /// Description: Specifies the last verb executed for the message item to which it is related.
-        /// Property ID: 0x1081
-        /// Data type: PtypInteger32, 0x0003
-        ///
-        /// Last_Verb_Reply_All = 103
-        /// Last_Verb_Reply_Sender = 102
-        /// Last_Verb_Reply_Forward = 104
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         public static string GetReplied(Outlook.MailItem item)
         {
             try
             {
-                var result = item.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x10810003");
+                var result = item.PropertyAccessor.GetProperty(Schemas.PidTagLastVerbExecuted());
 
                 if (result == 103)
                     return ("Reply_All");
@@ -81,20 +100,12 @@ namespace SharedResources
             }
         }
 
-        /// <summary>
-        /// Canonical name: PidTagLastVerbExecutionTime
-        /// Description: Contains the date and time, in UTC, during which the operation represented in the PidTagLastVerbExecuted property took place.
-        /// Property ID: 0x1082
-        /// Data type: PtypTime, 0x0040
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         public static string GetRepliedTime(Outlook.MailItem item)
         {
             try
             {
                 // System.DateTime
-                return item.PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x10820040").ToString();
+                return item.PropertyAccessor.GetProperty(Schemas.PidTagLastVerbExecutionTime()).ToString();
             }
             catch (Exception exc)
             {
@@ -113,7 +124,5 @@ namespace SharedResources
 
             return result;
         }
-        
-
     }
 }

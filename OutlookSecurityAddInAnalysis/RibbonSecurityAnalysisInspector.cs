@@ -49,7 +49,7 @@ namespace OutlookSecurityAddInAnalysis
         {
             base.RibbonSecurityAnalysis_Load(sender, e);
 
-            if (TaskPaneHeaderAnalysis != null & TaskPaneHeaderAnalysis.Visible)
+            if (TaskPaneHeaderAnalysis != null && TaskPaneHeaderAnalysis.Visible)
                 ApplySelection();
         }
 
@@ -73,7 +73,8 @@ namespace OutlookSecurityAddInAnalysis
 
             if (item.Class == (int)Outlook.OlObjectClass.olMail)
             {
-                HeaderAnalysisControl.TextBox.Text = MailItemProperties.GetHeader(item);
+                //HeaderAnalysisControl.TextBox.Text = MailItemProperties.GetHeader(item);
+                HeaderAnalysisControl.CurrentItem = item;
             }
         }
 
@@ -81,7 +82,7 @@ namespace OutlookSecurityAddInAnalysis
         {
             base.toggleButtonShowHeaders_Click(sender, e);
 
-            if (TaskPaneHeaderAnalysis != null & TaskPaneHeaderAnalysis.Visible)
+            if (TaskPaneHeaderAnalysis != null && TaskPaneHeaderAnalysis.Visible)
             {
                 ApplySelection();
             }
