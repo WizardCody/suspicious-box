@@ -68,7 +68,7 @@ namespace OutlookSecurityAddInReport
             else if (radioButtonPhishing.Checked)
                 type = radioButtonPhishing.Text;
 
-            type = string.Format("[ [ {0} TYPE ] ]", type.ToUpper());
+            type = string.Format("[ [ {0} TYPE ] ]<br>[ [ HOSTNAME {1} ] ]", type.ToUpper(), Environment.MachineName);
 
             Outlook.MailItem newMail = App.CreateItem(Outlook.OlItemType.olMailItem);
             newMail.Subject = mailObject.Subject;
@@ -100,7 +100,8 @@ namespace OutlookSecurityAddInReport
                 return;
             }
             
-            //mailObject.Categories = "Reported";
+            mailObject.Categories = "Reported";
+            mailObject.Close(Outlook.OlInspectorClose.olSave);
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
