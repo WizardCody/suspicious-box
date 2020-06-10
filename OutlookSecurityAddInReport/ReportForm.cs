@@ -75,10 +75,11 @@ namespace OutlookSecurityAddInReport
 
             Outlook.MAPIFolder parentFolder = mailObject.Parent as Outlook.MAPIFolder;
 
-            // SMTP address
-            string rootFolder = parentFolder.Store.GetRootFolder().Name;
+            
+            var rootFolder = parentFolder.Store.GetRootFolder();
 
-            var account = OutlookFunctions.GetAccount(App, rootFolder);
+            // rootFolder name is a SMTP address
+            var account = OutlookFunctions.GetAccount(App, rootFolder.Name);
             newMail.Sender = account.CurrentUser.AddressEntry;
             newMail.SendUsingAccount = account;
             newMail.Attachments.Add(path);
@@ -101,6 +102,8 @@ namespace OutlookSecurityAddInReport
             }
             
             mailObject.Categories = "Reported";
+            mailObject.UnRead = false;
+            mailObject.Move(rootFolder.Store.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderJunk));
             mailObject.Close(Outlook.OlInspectorClose.olSave);
         }
 

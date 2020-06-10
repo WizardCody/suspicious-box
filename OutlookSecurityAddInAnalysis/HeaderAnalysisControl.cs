@@ -45,7 +45,7 @@ namespace OutlookSecurityAddInAnalysis
                 {
                     if (attachment.Type == Outlook.OlAttachmentType.olEmbeddeditem)
                     {
-                        string path = string.Format(@"C:\Users\Marcin\Desktop\{0}", "test.msg");
+                        string path = Path.Combine(Path.GetTempPath(), Properties.Settings.Default.TempMsgFileName);
                         
                         attachment.SaveAsFile(path);
 
@@ -94,9 +94,9 @@ namespace OutlookSecurityAddInAnalysis
             InitializeComponent();
         }
 
-        private Regex MatchHeader(string header)
+        private Regex MatchHeader(string field)
         {
-            return new Regex(string.Format(@"^{0}:(.|\n)*?(?=\n\w)", header), RegexOptions.Multiline | RegexOptions.ECMAScript | RegexOptions.IgnoreCase);
+            return new Regex(string.Format(@"^{0}:(.|\n)*?(?=\n\w)", field), RegexOptions.Multiline | RegexOptions.ECMAScript | RegexOptions.IgnoreCase);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

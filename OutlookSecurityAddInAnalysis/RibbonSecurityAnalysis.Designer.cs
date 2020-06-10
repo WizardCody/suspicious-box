@@ -37,7 +37,6 @@
             this.buttonMalicious = this.Factory.CreateRibbonButton();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.toggleButtonShowHeaders = this.Factory.CreateRibbonToggleButton();
-            this.buttonAnalyse = this.Factory.CreateRibbonButton();
             this.tabSecurity.SuspendLayout();
             this.groupAnalysis.SuspendLayout();
             this.group1.SuspendLayout();
@@ -109,7 +108,6 @@
             // group1
             // 
             this.group1.Items.Add(this.toggleButtonShowHeaders);
-            this.group1.Items.Add(this.buttonAnalyse);
             this.group1.Label = "Analysis";
             this.group1.Name = "group1";
             // 
@@ -121,14 +119,6 @@
             this.toggleButtonShowHeaders.Name = "toggleButtonShowHeaders";
             this.toggleButtonShowHeaders.ShowImage = true;
             this.toggleButtonShowHeaders.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.toggleButtonShowHeaders_Click);
-            // 
-            // buttonAnalyse
-            // 
-            this.buttonAnalyse.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.buttonAnalyse.Image = global::OutlookSecurityAddInAnalysis.Properties.Resources.vision;
-            this.buttonAnalyse.Label = "Analyse";
-            this.buttonAnalyse.Name = "buttonAnalyse";
-            this.buttonAnalyse.ShowImage = true;
             // 
             // RibbonSecurityAnalysis
             // 
@@ -156,7 +146,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabSecurity;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleButtonShowHeaders;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonAnalyse;
     }
 
     partial class ThisRibbonCollection

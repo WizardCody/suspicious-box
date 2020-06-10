@@ -128,6 +128,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>received</string>
   <string>trace</string>
   <string>resent-date</string>
   <string>resent-from</string>
@@ -157,6 +158,18 @@ namespace OutlookSecurityAddInAnalysis.Properties {
             }
             set {
                 this["HeaderWhitelist"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OutlookSecurityAddInAnalysisHeaderMail.msg")]
+        public string TempMsgFileName {
+            get {
+                return ((string)(this["TempMsgFileName"]));
+            }
+            set {
+                this["TempMsgFileName"] = value;
             }
         }
     }
