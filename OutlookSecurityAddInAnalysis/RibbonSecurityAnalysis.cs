@@ -91,9 +91,11 @@ namespace OutlookSecurityAddInAnalysis
 
                 newMail.Send();
 
-                item.Categories = type.ToString();
+                item.Categories = string.Join(
+                    System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator, 
+                    type.ToString(),
+                    System.DirectoryServices.AccountManagement.UserPrincipal.Current.DisplayName);
 
-                // root folder
                 Outlook.MAPIFolder moveFolder = OutlookFunctions.GetRootFolder(App, Properties.Settings.Default.RequestMailbox);
 
                 moveFolder = moveFolder.Folders[Properties.Settings.Default.RequestMailboxDoneFolder].Folders[type.ToString()];

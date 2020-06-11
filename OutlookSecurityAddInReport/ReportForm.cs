@@ -68,7 +68,7 @@ namespace OutlookSecurityAddInReport
             else if (radioButtonPhishing.Checked)
                 type = radioButtonPhishing.Text;
 
-            type = string.Format("[ [ {0} TYPE ] ]<br>[ [ HOSTNAME {1} ] ]", type.ToUpper(), Environment.MachineName);
+            type = string.Format("[ [ {0} TYPE ] ]<br>[ [ HOSTNAME {1} ] ]", type.ToUpper(), System.Net.Dns.GetHostName());
 
             Outlook.MailItem newMail = App.CreateItem(Outlook.OlItemType.olMailItem);
             newMail.Subject = mailObject.Subject;
@@ -78,17 +78,14 @@ namespace OutlookSecurityAddInReport
             
             var rootFolder = parentFolder.Store.GetRootFolder();
 
-            // rootFolder name is a SMTP address
             var account = OutlookFunctions.GetAccount(App, rootFolder.Name);
             newMail.Sender = account.CurrentUser.AddressEntry;
             newMail.SendUsingAccount = account;
             newMail.Attachments.Add(path);
             newMail.To = Report_Mail;
 
-            // force generation of full HTML from Inspector
             var inspector = newMail.GetInspector;
 
-            // signature
             newMail.HTMLBody = type + "<br><br>" + textBoxComment.Text + "<br><br>" + newMail.HTMLBody;
 
             try
