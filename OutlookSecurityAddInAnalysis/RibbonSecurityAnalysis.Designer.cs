@@ -30,12 +30,12 @@
         {
             this.tabSecurity = this.Factory.CreateRibbonTab();
             this.groupAnalysis = this.Factory.CreateRibbonGroup();
+            this.group1 = this.Factory.CreateRibbonGroup();
             this.buttonSample = this.Factory.CreateRibbonButton();
             this.buttonLegit = this.Factory.CreateRibbonButton();
             this.buttonSimulation = this.Factory.CreateRibbonButton();
             this.buttonSpam = this.Factory.CreateRibbonButton();
             this.buttonMalicious = this.Factory.CreateRibbonButton();
-            this.group1 = this.Factory.CreateRibbonGroup();
             this.toggleButtonShowHeaders = this.Factory.CreateRibbonToggleButton();
             this.tabSecurity.SuspendLayout();
             this.groupAnalysis.SuspendLayout();
@@ -59,6 +59,12 @@
             this.groupAnalysis.Items.Add(this.buttonMalicious);
             this.groupAnalysis.Label = "Response";
             this.groupAnalysis.Name = "groupAnalysis";
+            // 
+            // group1
+            // 
+            this.group1.Items.Add(this.toggleButtonShowHeaders);
+            this.group1.Label = "Analysis";
+            this.group1.Name = "group1";
             // 
             // buttonSample
             // 
@@ -104,12 +110,6 @@
             this.buttonMalicious.Name = "buttonMalicious";
             this.buttonMalicious.ShowImage = true;
             this.buttonMalicious.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonMalicious_Click);
-            // 
-            // group1
-            // 
-            this.group1.Items.Add(this.toggleButtonShowHeaders);
-            this.group1.Label = "Analysis";
-            this.group1.Name = "group1";
             // 
             // toggleButtonShowHeaders
             // 

@@ -73,7 +73,6 @@ namespace OutlookSecurityAddInAnalysis
 
             if (item.Class == (int)Outlook.OlObjectClass.olMail)
             {
-                //HeaderAnalysisControl.TextBox.Text = MailItemProperties.GetHeader(item);
                 HeaderAnalysisControl.CurrentItem = item;
             }
         }

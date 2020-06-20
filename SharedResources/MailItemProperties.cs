@@ -104,7 +104,6 @@ namespace SharedResources
         {
             try
             {
-                // System.DateTime
                 return item.PropertyAccessor.GetProperty(Schemas.PidTagLastVerbExecutionTime()).ToString();
             }
             catch (Exception exc)

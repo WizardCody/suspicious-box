@@ -3,19 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="LegitTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\legit.oft</Value>
+      <Value Profile="(Default)">F:\git\suspicious-box\mail_templates\pl\legit.oft</Value>
     </Setting>
     <Setting Name="SpamTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\spam.oft</Value>
+      <Value Profile="(Default)">F:\git\suspicious-box\mail_templates\pl\spam.oft</Value>
     </Setting>
     <Setting Name="MaliciousTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\malicious.oft</Value>
+      <Value Profile="(Default)">F:\git\suspicious-box\mail_templates\pl\malicious.oft</Value>
     </Setting>
     <Setting Name="SimulationTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\simulation.oft</Value>
+      <Value Profile="(Default)">F:\git\suspicious-box\mail_templates\pl\simulation.oft</Value>
     </Setting>
     <Setting Name="NoAttachmentTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Marcin\Dropbox\study\Specjalnościowa pracownia dyplomowa\praca dyplomowa\mail_templates\noattachment.oft</Value>
+      <Value Profile="(Default)">F:\git\suspicious-box\mail_templates\pl\noattachment.oft</Value>
     </Setting>
     <Setting Name="SendFromMailbox" Type="System.String" Scope="User">
       <Value Profile="(Default)">soc-pl@outlook.com</Value>

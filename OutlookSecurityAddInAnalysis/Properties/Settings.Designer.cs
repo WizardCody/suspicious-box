@@ -25,8 +25,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Marcin\\Dropbox\\study\\Specjalnościowa pracownia dyplomowa\\praca dyplomowa" +
-            "\\mail_templates\\legit.oft")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\git\\suspicious-box\\mail_templates\\pl\\legit.oft")]
         public string LegitTemplate {
             get {
                 return ((string)(this["LegitTemplate"]));
@@ -38,8 +37,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Marcin\\Dropbox\\study\\Specjalnościowa pracownia dyplomowa\\praca dyplomowa" +
-            "\\mail_templates\\spam.oft")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\git\\suspicious-box\\mail_templates\\pl\\spam.oft")]
         public string SpamTemplate {
             get {
                 return ((string)(this["SpamTemplate"]));
@@ -51,8 +49,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Marcin\\Dropbox\\study\\Specjalnościowa pracownia dyplomowa\\praca dyplomowa" +
-            "\\mail_templates\\malicious.oft")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\git\\suspicious-box\\mail_templates\\pl\\malicious.oft")]
         public string MaliciousTemplate {
             get {
                 return ((string)(this["MaliciousTemplate"]));
@@ -64,8 +61,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Marcin\\Dropbox\\study\\Specjalnościowa pracownia dyplomowa\\praca dyplomowa" +
-            "\\mail_templates\\simulation.oft")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\git\\suspicious-box\\mail_templates\\pl\\simulation.oft")]
         public string SimulationTemplate {
             get {
                 return ((string)(this["SimulationTemplate"]));
@@ -77,8 +73,7 @@ namespace OutlookSecurityAddInAnalysis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Marcin\\Dropbox\\study\\Specjalnościowa pracownia dyplomowa\\praca dyplomowa" +
-            "\\mail_templates\\noattachment.oft")]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\git\\suspicious-box\\mail_templates\\pl\\noattachment.oft")]
         public string NoAttachmentTemplate {
             get {
                 return ((string)(this["NoAttachmentTemplate"]));

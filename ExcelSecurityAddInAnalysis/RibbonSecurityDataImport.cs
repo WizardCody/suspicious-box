@@ -74,6 +74,8 @@ namespace ExcelSecurityAddInAnalysis
 
         private void Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
             var worker = sender as System.ComponentModel.BackgroundWorker;
             var arguments = (FormProgressArgs)e.Argument;
 
@@ -261,6 +263,10 @@ namespace ExcelSecurityAddInAnalysis
             }
 
             Manager.SetStatus(itemcount, itemcount);
+
+            watch.Stop();
+
+            Debug.WriteLine(watch.ElapsedMilliseconds);
         }
 
     }
